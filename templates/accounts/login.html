@@ -1,0 +1,64 @@
+{% extends '../layout/base.html' %}
+{% load static %}
+
+
+{% block css %}
+
+{% endblock css %}
+
+
+{% block body %}
+
+<body class="main-layout inner_page">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="{% static 'images/loading_2.gif' %}" alt="#" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    {% include 'include/navigation.html' %}
+    <!-- end header inner -->
+    <!-- blog -->
+    <div class="row justify-content-center form-bg-image"
+        data-background-lg="/static/assets/img/illustrations/signin.svg">
+        <div class="col-12 d-flex align-items-center justify-content-center">
+            <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
+                <div class="text-center text-md-center mb-4 mt-md-0">
+                    <h1 class="mb-0 h3">
+                        Student Management
+                    </h1>
+                    <br />
+                    <p>
+                        {% if msg %}
+                        {{ msg | safe }}
+                        {% else %}
+                        Add your credentials
+                        {% endif %}
+                    </p>
+                </div>
+                <form method="post" action="" class="mt-4">
+
+                    {% csrf_token %}
+
+                    {{form.as_p}}
+                    <div class="d-grid">
+                        <button type="submit" name="login" class="btn btn-gray-800">Sign IN</button>
+                    </div>
+                </form>
+                <br />
+
+
+                <div class="d-flex justify-content-center align-items-center mt-4">
+                    <span class="fw-normal">
+                        Not registered?
+                        <a href="{% url 'authen:register' %}" class="fw-bold">Create account</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'include/footer.html' %}
+    {% include 'include/scripts.html' %}
+
+</body>
+{% endblock body %}
