@@ -1,2 +1,40 @@
-<div><button type ="create website">create website</button></div>
-{% include '' %}
+{% extends '../layout/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block body %}
+
+<body class="main-layout">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="{% static 'images/loading.gif' %}" alt="#" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    {% include 'include/navigation.html' %}
+    <!-- end header inner -->
+    <!-- banner -->
+    <div class="container">
+        { 
+        <div class="row">
+            <div class="col-md-5 mx-auto">
+                <form method="post" class="card shadow-lg">
+                    <div class="card-body">
+                        {% csrf_token %}
+                        <h1>Project add</h1>
+                        {{form|crispy}}
+                        <button class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    {% include 'include/footer.html' %}
+    <!-- end footer -->
+    <!-- Javascript files-->
+    {% include 'include/scripts.html' %}
+
+</body>
+{% endblock body %}
