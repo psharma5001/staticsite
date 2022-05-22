@@ -2,7 +2,7 @@ from django.shortcuts import render
 from multiprocessing import AuthenticationError
 from web.models import Website
 from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -39,3 +39,16 @@ def login(request):
         return redirect('/')
 
     return render(request,'login.html')
+
+def about(request):
+    #ctx = {}
+    return render(request,'about.html')
+
+def elements(request):
+    #ctx = {}
+    return render(request,'elements.html')
+    
+    
+def generic(request):
+    #ctx = {}
+    return render(request,'generic.html')
