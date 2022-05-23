@@ -1,0 +1,25 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css %}
+
+{% endblock %}
+{% block body %}
+
+<article class="post">
+  <form method="post">
+    {% csrf_token %}
+    {{form|crispy}}
+    <div class="mb-3">
+      <button class="button" type="submit">Register</button>
+      <a href="{% url 'authen:login' %}" class="button ">Already have Account?</a>
+    </div>
+  </form>
+  <ul class="actions special">
+    <li></li>
+  </ul>
+</article>
+{% endblock %}
+{% block js %}
+
+{% endblock %}
