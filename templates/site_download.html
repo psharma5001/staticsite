@@ -12,44 +12,29 @@
         text-align: center;
         padding: 10px;
     }
-    .ficons:hover{
+
+    .ficons:hover {
         background-color: rgb(242, 246, 130);
-        
+
     }
 </style>
 {% endblock %}
 {% block body %}
-
-
-<section class="posts">
-
-    {% for page in pages %}
+<section>
     <article>
-
-        📃 {{page.filename}}
-        <a class="ficons" title="Edit" href="{% url 'page_edit' page.id %}">📝 </a>
-        <a class="ficons" title="Delete" href="{% url 'page_delete' page.id %}">❌ </a>
-        <a class="ficons" title="Preview" href="{% url 'page_preview' page.id %}">🪟 </a>
+        <form method="post">
+            {% csrf_token %}
+            <h5>Files available to download (select to zip)</h5>
+            {% for page in pages %}
+            <div>
+                <input type="checkbox" name="files" value="{{page.filename}}" id="{{page.filename}}">
+                <label for="{{page.filename}}">{{page.filename}}</label>
+            </div>
+            {% endfor %}
+            <button type="submit">Download site <i class="fa fa-download" aria-hidden="true"></i> </button>
+        </form>
     </article>
-
-    {% empty %}
-    <article>
-        <h2>Website has no pages.</h2>
-    </article>
-    <article>
-        <h2>Create a new</h2>
-    </article>
-    {% endfor %}
-
 </section>
-<article class="post">
-    <h2>Create a new Page</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{form|crispy}}
-        <button>Create page <i class="fa fa-plus-circle" aria-hidden="true"></i> </button>
-    </form>
-</article>
 {% endblock %}
 {% block js %}
 <script>

@@ -12,10 +12,14 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="{% static 'css/main.css' %}" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<noscript>
 		<link rel="stylesheet" href="{% static 'css/noscript.css' %}" />
 	</noscript>
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static '/js/notify.min.js' %}"></script>
 	<title>{% block title %} {% endblock %}</title>
 	<style>
 		.mb-3 {
@@ -28,14 +32,13 @@
 
 
 <body class="is-preload">
+	{% include 'includes/notify.html' %}
 	<!-- Scripts -->
 	<div id="wrapper" class="fade-in">
 		<!-- Intro -->
 		<div id="intro">
 			<h1>{{title}}</h1>
-			<p>A free, fully responsive HTML5 + CSS3 site template designed by <a
-					href="https://twitter.com/ajlkn">@ajlkn</a> for <a href="https://html5up.net">HTML5 UP</a><br />
-				and released for free under the <a href="https://html5up.net/license">Creative Commons license</a>.</p>
+			<p>{{summary}}</p>
 			<ul class="actions">
 				<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 			</ul>
@@ -59,11 +62,12 @@
 
 
 	</div>
-	<script src="{% static 'js/jquery.min.js' %}"></script>
+
 	<script src="{% static '/js/jquery.scrollex.min.js' %}"></script>
 	<script src="{% static '/js/jquery.scrolly.min.js' %}"></script>
 	<script src="{% static '/js/browser.min.js' %}"></script>
 	<script src="{% static '/js/breakpoints.min.js' %}"></script>
+
 	<script src="{% static '/js/util.js' %}"></script>
 	<script src="{% static '/js/main.js' %}"></script>
 	{% block js %}

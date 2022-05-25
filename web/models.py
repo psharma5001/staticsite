@@ -5,7 +5,7 @@ from django.db import models
 from markdownfield.models import MarkdownField, RenderedMarkdownField
 from markdownfield.validators import VALIDATOR_STANDARD
 from django.contrib.auth.models import User
-from martor.models import MartorField
+
 
 # Create your models here.
 class  Website(models.Model):
@@ -16,6 +16,6 @@ class  Website(models.Model):
     is_generated=models.BooleanField(default=False)
 
 class Page(models.Model):
-    text = MartorField()
+    text = models.TextField(verbose_name='Page Content (MARKDOWN only)',)
     filename=models.CharField(verbose_name="filename",max_length=60,unique=TRUE)
     website=models.ForeignKey(Website,on_delete=models.CASCADE)

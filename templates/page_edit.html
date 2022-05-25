@@ -12,38 +12,16 @@
         text-align: center;
         padding: 10px;
     }
-    .ficons:hover{
+
+    .ficons:hover {
         background-color: rgb(242, 246, 130);
-        
+
     }
 </style>
 {% endblock %}
 {% block body %}
-
-
-<section class="posts">
-
-    {% for page in pages %}
-    <article>
-
-        📃 {{page.filename}}
-        <a class="ficons" title="Edit" href="{% url 'page_edit' page.id %}">📝 </a>
-        <a class="ficons" title="Delete" href="{% url 'page_delete' page.id %}">❌ </a>
-        <a class="ficons" title="Preview" href="{% url 'page_preview' page.id %}">🪟 </a>
-    </article>
-
-    {% empty %}
-    <article>
-        <h2>Website has no pages.</h2>
-    </article>
-    <article>
-        <h2>Create a new</h2>
-    </article>
-    {% endfor %}
-
-</section>
 <article class="post">
-    <h2>Create a new Page</h2>
+    <h2>Edit {{page.filename}} </h2>
     <form method="post">
         {% csrf_token %}
         {{form|crispy}}
