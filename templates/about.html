@@ -1,16 +1,19 @@
 {% extends 'layout\base.html' %}
 {% load static %}
 {% block body %}
+{% block css %}
+  <style>
+  body{
+    background-color: rgb(7, 7, 7);
+   /*  background-image: url('https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=2000');*/ 
+    background-repeat: no-repeat;
+    background-size: cover ;
+  
+  </style>
+
+  {% endblock %}
 
 <body class="main-layout inner_page">
-   <!-- loader  -->
-   <div class="loader_bg">
-      <div class="loader"><img src="{% static 'images/loading_2.gif' %}" alt="#" /></div>
-   </div>
-   <!-- end loader -->
-   <!-- header -->
-   {% include 'includes/navigation.html' %}
-   <!-- end header inner -->
    <!-- innva -->
    <div class="innva">
       <div class="container">
@@ -18,15 +21,15 @@
             <div class="col-md-6">
                <div class="titlepage text_align_left">
                   <h2>About Us</h2>
-                  <p>A static site generator (SSG) is that type of software's or web sites were you give the content to the web site, and it will provide you a html static site pages as a temples. It provides you a html static site page as per the demands of web pages.
+                  <p style="max-width: 940px; padding-top: 2%; font-weight:1000;">A static site generator (SSG) is that type of software's or web sites were you give the content to the web site, and it will provide you a html static site pages as a temples. 
+                     It provides you a html static site page as per the demands of web pages.Static site generators (SSG) do much the same thing. 
+                     They apply data and content to templates, and generate a view of a page which can be served to the visitors of a site.
                     g:- Hugo,  Sphinex,  Jekyll  etc.
                     </p>
-                  <a class="read_more" href="javascript:void(0)">Read More</a>
                </div>
             </div>
             <div class="col-md-6">
                <div class="innva_img">
-                  <figure><img src="{% static 'images/innva.png' %}" alt="#" /></figure>
                </div>
             </div>
          </div>
