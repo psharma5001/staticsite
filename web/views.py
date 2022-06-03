@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import FileResponse
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
